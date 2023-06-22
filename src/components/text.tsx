@@ -5,22 +5,31 @@ type IProps = {
   //fakat setTodo nun type ını app.js de settodo uzerıne hover yapıldıgında gelen deger alınır
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
+  //addMessage type belirlenir
+  //içine parametre gerekıyorsa yazılır, mesela sıldırmede gerekecek
+  addMessage: () => void;
 };
 
 //const Input: React.FC = ({ todo, setTodo }: IProps) => {
-const Input: React.FC<IProps> = ({ todo, setTodo }) => {
+const Text: React.FC<IProps> = ({ todo, setTodo, addMessage }) => {
   //prop olarak gelen todo,settdo degerlerın type larını belirtmek gerekıyor.
   //ister yanlarında  istrde üstte tanımlanabılır.
   return (
-    <div>
+    <div className="flex items-center">
       <input
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
         type="text"
-        placeholder="yazınız ..."
+        placeholder="write something..."
+        className="border border-gray-300 rounded px-4 py-2 w-64 mr-2"
       />
-      <button>Ekle</button>
+      <button
+        onClick={addMessage}
+        className="bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2"
+      >
+        Add
+      </button>
     </div>
   );
 };
-export default Input;
+export default Text;
