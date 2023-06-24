@@ -37,7 +37,7 @@ const Messages: React.FC<Props> = ({
   return (
     <div>
       {todos.map((todo, i) => (
-        <div key={i} className="flex items-center mb-4">
+        <div key={i} className="flex items-center my-4">
           <input
             type="text"
             value={editMode === todo.id ? editedMessage : todo.message}

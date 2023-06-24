@@ -3,16 +3,17 @@ import "./App.css";
 import { PropTodos } from "./components/types/type";
 import Messages from "./components/messages";
 import Text from "./components/text";
-
 ////React.FC--functional component, type
 
 const App: React.FC = () => {
+  ///inputa girilen değeri tutan state
   const [todo, setTodo] = useState<string>("");
+  ////butonların durumunu kontrol eden state
   const [editMode, setEditMode] = useState<number | null>(null);
   const [editedMessage, setEditedMessage] = useState<string>("");
 
   //her yazılan ifadenin ekle ye basıldıgında tutmak için
-  //ayrıca id numaralarına göre sildirme işleimide yapılacak
+  //ayrıca id numaralarına göre sildirme işlemide yapılacak
   //bize bu sekılde bır yapı gerekıyor
   //todos state ıne string yerine obje yazamayız
   //bu nedenle bu strıng yerıne bır tanımlama yapılıp o yazılmalı
@@ -20,7 +21,8 @@ const App: React.FC = () => {
   // [
   //   {
   //     message:"hello",
-  //     id:5
+  //     id:5y
+
   //   }
   // ]
 
@@ -42,7 +44,6 @@ const App: React.FC = () => {
   //silmek için id gerekli,ayrıca tek deger oldugu ıcın number ı buarya yazabılrız
   const deleteMessage = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
-    alert("deleted");
   };
 
   const updateMessage = (id: number, message: string) => {
