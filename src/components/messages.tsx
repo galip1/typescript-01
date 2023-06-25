@@ -20,16 +20,27 @@ const Messages: React.FC<Props> = ({
   setEditMode,
   setEditedMessage,
 }) => {
+  ///enterEditMode fonksiyonu, düzenleme moduna geçmek için kullanılır.
+  // Belirli bir todo öğesinin id ve message değerini alır,
+  //setEditMode ve setEditedMessage fonksiyonlarını kullanarak
+  //edit modunu ve düzenlenen mesajı günceller.
   const enterEditMode = (id: number, message: string) => {
     setEditMode(id);
     setEditedMessage(message);
   };
 
+  //düzenleme modunu iptal etmek için kullanılır.
+  //setEditMode ve setEditedMessage fonksiyonlarını kullanarak
+  //edit modunu ve düzenlenen mesajı sıfırlar.
   const cancelEditMode = () => {
     setEditMode(null);
     setEditedMessage("");
   };
 
+  //düzenlenen mesajı kaydetmek için kullanılır.
+  //Belirli bir todo öğesinin id değerini alır
+  //ve updateMessage fonksiyonunu çağırarak
+  // todo öğesinin mesajını günceller.
   const saveEditedMessage = (id: number) => {
     updateMessage(id, editedMessage);
   };

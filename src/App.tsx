@@ -8,8 +8,11 @@ import Text from "./components/text";
 const App: React.FC = () => {
   ///inputa girilen değeri tutan state
   const [todo, setTodo] = useState<string>("");
+
   ////butonların durumunu kontrol eden state
   const [editMode, setEditMode] = useState<number | null>(null);
+
+  //mesajarı güncelleyen state
   const [editedMessage, setEditedMessage] = useState<string>("");
 
   //her yazılan ifadenin ekle ye basıldıgında tutmak için
@@ -34,10 +37,12 @@ const App: React.FC = () => {
   const addMessage = () => {
     //ekranda yazılı bir todo varsa
     //mevcut todos ları ac,
-    //sonra bir tane obje olcak sekılde bır yapı ejklenır
+    //sonra bir tane obje olcak sekılde bır yapı eklenır
     if (todo) {
       setTodos([...todos, { message: todo, id: todos.length + 1 }]);
-      setTodo(""); // Todo değerini boş bir dizeye ayarla
+      // Todo değerini boş bir dizeye ayarla
+      // input alanındaki todo değeri temizlenir.
+      setTodo("");
     }
   };
 
